@@ -18,7 +18,7 @@ class HomeController extends Controller
         // variabel baru
         $data = Product::all();
         $cart = Cart::with('product')->get();
-        return view('home.index', compact('data', 'cart'));
+        return view('home.product', compact('data', 'cart'));
     }
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class HomeController extends Controller
                     'harga' => $cek->harga
                 ]);
 
-                return redirect()->route('index')->with('success', 'Kue Berhasil Masuk Keranjang');
+                return redirect()->route('product')->with('success', 'Kue Berhasil Masuk Keranjang');
             } else {
                 # kalau sudah ada maka tambahkan jumlah dan harga 
                 $cart->update([
@@ -52,7 +52,7 @@ class HomeController extends Controller
                 ]);
 
                 // dd('update keranjang berhasil');
-                return redirect()->route('index')->with('success', 'Keranjang Kue Berhasil di update');
+                return redirect()->route('product')->with('success', 'Keranjang Kue Berhasil di update');
             }   
         }
     }
@@ -74,6 +74,6 @@ class HomeController extends Controller
 
         $cart->delete();
 
-        return redirect()->route('index')->with('success', 'Item Keranjang dihapus');
+        return redirect()->route('product')->with('success', 'Item Keranjang dihapus');
     }
 }

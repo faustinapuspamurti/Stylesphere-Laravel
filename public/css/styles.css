@@ -276,3 +276,66 @@ p {
     margin: 0 auto;
     padding: 0px;
 }
+
+/* Contact Area styling */
+.contact-area {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+/* Google Map styling */
+.google-map {
+    width: 100%;
+    max-width: 700px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#googleMap {
+    width: 100%;
+    height: 100%;
+}
+/* Contact Info styling */
+.contact-info {
+    width: 50%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-address p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.contact-address span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .contact-area {
+        flex-direction: column-reverse;
+    }
+
+    .google-map,
+    .contact-info {
+        width: 100%;
+        margin: 0;
+    }
+}

@@ -34,11 +34,10 @@
         </div>
         <div class="col-md-4">
             <div class="d-flex justify-content-between border-bottom border-dark">
-                <p>Current Order</p>
+                <p>Keranjang</p>
                 <a href="#" class="text-danger"
                     onclick="event.preventDefault();
-            document.getElementById('clear').submit();">Clear
-                    All</a>
+            document.getElementById('clear').submit();">Hapus Semua</a>
 
                 <form id="clear" action="{{ route('addtocart') }}" method="POST" class="d-none">
                     @csrf @method('DELETE')
@@ -101,8 +100,7 @@
                         <h2 class="fw-bold">Rp {{ number_format($cart->sum('harga')) }}</h2>
                     </div>
                 @endif
-                <button class="btn btn-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Pay
-                    Now</button>
+                <button class="btn btn-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Bayar Sekarang</button>
             </div>
         </div>
     </div>
@@ -112,7 +110,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Preview Orderan</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Preview Pesanan</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -136,15 +134,15 @@
                     <hr>
 
                     <div class="ticket w-100">
-                        <p class="centered">Bukti Transaksi
-                            <br>Purwokerto Selatan
-                            <br>Kab Banyumas Jawa Tengah
+                        <p class="centered">Bukti Pembayaran
+                            <br>JL.DI Panjaitan No.128, Karangreja
+                            <br>Kec. Purwokerto Selatan Kab. Banyumas Jawa Tengah
                         </p>
                         <table class="w-100">
                             <thead>
                                 <tr>
                                     <th class="quantity">Q.</th>
-                                    <th class="description">Description</th>
+                                    <th class="description">Product</th>
                                     <th class="price">Harga</th>
                                 </tr>
                             </thead>
@@ -163,8 +161,8 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        <p class="centered">Thanks for your purchase!
-                            <br>Happpy Shopping
+                        <p class="centered">Terimakasih sudah melakukan pemesanan!
+                            <br>Silahkan berkunjung kembali
                         </p>
                     </div>
                 </div>

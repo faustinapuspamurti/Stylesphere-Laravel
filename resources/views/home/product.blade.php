@@ -15,7 +15,7 @@
                     document.getElementById('barang-{{ $item->id }}').submit();">
                             <div class="card p-3">
                                 <img src="{{ asset('img/' . $item->image) }}" class="img-product" alt="">
-                                <h2 class="text-center">{{ $item->title }}</h2>
+                                <h2 class="text-center" style="font-size: 18px; margin: 20px 0;">{{ $item->title }}</h2>
                                 <hr class="mt-1 mb-3">
                                 <div class="d-flex justify-content-between">
                                     <p class="mb-0">Rp {{ number_format($item->harga) }}</p>

@@ -61,7 +61,7 @@ class HomeController extends Controller
     {
         Cart::truncate();
         // dd('keranjang dihapus semua');
-        return redirect()->route('index')->with('success', 'Keranjang dihapus');
+        return redirect()->route('product')->with('success', 'Keranjang dihapus');
     }
 
     public function hapus_item($id)

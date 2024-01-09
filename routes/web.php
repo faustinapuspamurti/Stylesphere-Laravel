@@ -14,18 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/home', 'home.master');
-Route::view('/', 'home.master');
-Route::view('/contact', 'home.contact');
-
-Route::get('/product', [App\Http\Controllers\HomeController::class, 'index'])->name('product');
-Route::post('/', [App\Http\Controllers\HomeController::class, 'store'])->name('addtocart');
-Route::delete('/', [App\Http\Controllers\HomeController::class, 'destroy'])->name('clearcart');
-Route::delete('/cart/{id}', [App\Http\Controllers\HomeController::class, 'hapus_item'])->name('hapus_item');
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('master');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('master');
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
 
 Auth::routes();
 Route::prefix('admin')->middleware('role:admin')->group(function () {
     Route::get('', [App\Http\Controllers\Admin\IndexController::class, 'index'])->name('dashboard');
 
     Route::resource('product', App\Http\Controllers\Admin\ProductController::class);
+});
+
+Route::prefix('user')->middleware('role:user')->group(function () {
+    Route::post('/', [App\Http\Controllers\ProductController::class, 'store'])->name('addtocart');
+    Route::delete('/', [App\Http\Controllers\ProductController::class, 'destroy'])->name('clearcart');
+    Route::delete('/cart/{id}', [App\Http\Controllers\ProductController::class, 'hapus_item'])->name('hapus_item');
 });

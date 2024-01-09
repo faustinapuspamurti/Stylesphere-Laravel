@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="row" id="list-product">
                 @foreach ($data as $item)
-                    <div class="col-md-4" data-filter-item data-filter-name="{{ $item->title }}">
+                    <div class="col-md-4 mb-4" data-filter-item data-filter-name="{{ $item->title }}">
                         <a href="#" class="text-dark"
                             onclick="event.preventDefault();
                     document.getElementById('barang-{{ $item->id }}').submit();">
@@ -19,7 +19,7 @@
                                 <hr class="mt-1 mb-3">
                                 <div class="d-flex justify-content-between">
                                     <p class="mb-0">Rp {{ number_format($item->harga) }}</p>
-                                    <p class="mb-0"><i class="fas fa-plus me-1"></i>Add</p>
+                                    <p class="mb-0"><i class="fa fa-shopping-cart"></i> Add</p>
                                 </div>
                             </div>
                         </a>
@@ -110,7 +110,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Preview Pesanan</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Pesanan</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
